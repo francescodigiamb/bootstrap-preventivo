@@ -4,8 +4,9 @@ const formElement = document.getElementById('form')
 console.log(formElement)
 
 let preventivo
-let promo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'] // Array
-let promoElement = document.getElementById('promo')
+let codicepromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'] // Array
+const inputpromoElement = document.getElementById('promo') //input codice promo
+
 
 
 formElement.addEventListener('submit', function (event) {
@@ -18,8 +19,12 @@ formElement.addEventListener('submit', function (event) {
     const selectwork = selectElement.options[selectElement.selectedIndex].value;
     console.log(selectwork)
 
-    // codice promo
-    console.log(promoElement)
+    // recupero il codice promo inserito
+    const promo = inputpromoElement.value
+    console.log(promo)
+    // calcolo codice promo se incluso nell'array
+    const promoOK = codicepromo.includes(promo) //Boolean 
+    console.log(promoOK)
 
     // calcolo preventivo 
 
