@@ -84,6 +84,8 @@
             <div class="mb-3">
               <label for="codicepromo" class="form-label">Codice promozionale</label>
               <input type="text" class="form-control" id="promo">
+              <div class="valid-feedback">La promo è valida</div>
+              <div class="invalid-feedback">La promo non è valida</div>
             </div>
             <!-- Checkbox per accettazione privacy -->
             <div class="form-check mb-4">
@@ -100,7 +102,7 @@
               </div>
               <div class="col-sm-4">
                 <div class="text-center fw-bold">Prezzo finale</div>
-                <div class="text-center fw-bold"></div>
+                <div class="text-center fw-bold" id="prezzo">--</div>
               </div>
             </div>
           </form>
@@ -108,8 +110,10 @@
         <!-- Sezione Card con contatti -->
         <div class="col-sm-3">
           <div class="card">
-            <div class="bg-secondary" style="height: 200px; width: 100%; text-align: center;">
-              <span class="py-3">300X200</span>
+            <div style="height: 200px; width: 100%; text-align: center; background-color: rgb(200, 200, 200);">
+              <span class="py-3" style="color: white; line-height: 200px; text-align: center; font-size: xx-large;">300
+                x
+                200</span>
             </div>
             <div class="card-body">
               <h5 class="card-title">I nostri contatti</h5>

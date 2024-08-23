@@ -6,6 +6,8 @@ console.log(formElement)
 let preventivo
 let codicepromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'] // Array
 const inputpromoElement = document.getElementById('promo') //input codice promo
+let preventivopromo
+const prezzoElement = document.getElementById('prezzo')
 
 
 
@@ -19,6 +21,25 @@ formElement.addEventListener('submit', function (event) {
     const selectwork = selectElement.options[selectElement.selectedIndex].value;
     console.log(selectwork)
 
+    // calcolo preventivo 
+
+    if (selectwork == 1) {
+        // prezzo per Backend Development (che ha il value 1 nella select)
+        preventivo = parseFloat(10 * 20.50).toFixed(2) //number
+        console.log(preventivo)
+
+    } else if (selectwork == 2) {
+        // prezzo per Frontend Development (che ha il valore 2 nella select)
+        preventivo = parseFloat(10 * 15.30).toFixed(2) //number
+        console.log(preventivo)
+
+    } else {
+        // prezzo per Data Analyst (che ha l'ultimo valore della select)
+        preventivo = parseFloat(10 * 33.60).toFixed(2) //number
+        console.log(preventivo)
+
+    }
+
     // recupero il codice promo inserito
     const promo = inputpromoElement.value
     console.log(promo)
@@ -26,24 +47,24 @@ formElement.addEventListener('submit', function (event) {
     const promoOK = codicepromo.includes(promo) //Boolean 
     console.log(promoOK)
 
-    // calcolo preventivo 
+    // rimuovo ad ogni invio la classe che viene aggiunta
+    inputpromoElement.classList.remove('is-valid', 'is-invalid')
+    // calcolo il preventivo con eventuale codice promo valido
 
-    if (selectwork == 1) {
-        // prezzo per Backend Development (che ha il value 1 nella select)
-        preventivo = 10 * 20.50
-        console.log(preventivo)
-
-    } else if (selectwork == 2) {
-        // prezzo per Frontend Development (che ha il valore 2 nella select)
-        preventivo = 10 * 15.30
-        console.log(preventivo)
+    if (promoOK === true) {
+        preventivopromo = parseFloat(preventivo - (preventivo * 0.25)).toFixed(2) // number
+        console.log(preventivopromo)
+        // aggiungiamo la classe all'input in modo da mostrare il messaggio
+        inputpromoElement.classList.add('is-valid')
 
     } else {
-        // prezzo per Data Analyst (che ha l'ultimo valore della select)
-        preventivo = 10 * 33.60
-        console.log(preventivo)
-
+        preventivopromo = preventivo // number 
+        console.log(preventivopromo)
+        // aggiungiamo la classe all'input in modo da mostrare il messaggio
+        inputpromoElement.classList.add('is-invalid')
     }
 
+
+    prezzoElement.innerHTML = preventivopromo + ' €'
 
 })
