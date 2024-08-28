@@ -1,14 +1,14 @@
 console.log('Milestone-1')
 
-const formElement = document.getElementById('form')
-console.log(formElement)
 
 let preventivo
-let codicepromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'] // Array
-const inputpromoElement = document.getElementById('promo') //input codice promo
 let preventivopromo
+const codicepromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'] // Array
+const inputpromoElement = document.getElementById('promo') //input codice promo
 const prezzoElement = document.getElementById('prezzo')
 
+const formElement = document.getElementById('form')
+console.log(formElement)
 
 
 formElement.addEventListener('submit', function (event) {
