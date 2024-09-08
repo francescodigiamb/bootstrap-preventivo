@@ -11,21 +11,22 @@ const codicepromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'] // A
 const inputpromoElement = document.getElementById('promo') //input codice promo
 const prezzoElement = document.getElementById('prezzo')
 
+// recupero il form
 const formElement = document.getElementById('form')
 console.log(formElement)
-
+// recupero la sezione del lavoro
 const selectElement = document.getElementById('work')
 console.log(selectElement)
 
 // BONUS
 // iterazione array di oggetti 
-for (let index = 0; index < workoptions.length; index++) {
+for (let i = 0; i < workoptions.length; i++) {
     // creazione elemento option
     const option = document.createElement('option');
-    // inserimento dinamico di value usando l'elemento corrente dell'array (in questo caso workoptions di index) 
-    option.setAttribute('value', workoptions[index].value);
+    // inserimento dinamico di value usando l'elemento corrente dell'array (in questo caso workoptions di i) 
+    option.setAttribute('value', workoptions[i].value);
     // inserimento dinamico del testo 
-    option.textContent = workoptions[index].text;
+    option.textContent = workoptions[i].text;
     console.log(option)
     // 'appendo' la option creata dinamicamente alla select element
     selectElement.appendChild(option)
